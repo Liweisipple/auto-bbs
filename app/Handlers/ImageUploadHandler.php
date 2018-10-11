@@ -8,6 +8,8 @@
 
 namespace App\Handlers;
 
+use Intervention\Image\Facades\Image;
+
 class ImageUploadHandler
 {
     protected $allowed_ext = ["png", "jpg", "gif", 'jpeg'];
@@ -45,7 +47,7 @@ class ImageUploadHandler
         }
 
         return [
-            'path' => config('app.url') . "/$folder_name/$filename"
+            'path' => config('app.url'). ':'. $_SERVER["SERVER_PORT"]. "/$folder_name/$filename"
         ];
     }
 
